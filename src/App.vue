@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+	<div id="app">
+		<vue-swiper dir="rtl" class="my-swiper" @init="init">
+			<swiper-slide> Slide 1 </swiper-slide>
+			<swiper-slide> Slide 2 </swiper-slide>
+			<swiper-slide> Slide 3 </swiper-slide>
+		</vue-swiper>
+	</div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import VueSwiper from './components/swiper'
+import swiperSlide from './components/swiperSlide'
+import 'swiper/swiper-bundle.min.css'
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-};
+	name: 'App',
+	components: {
+		VueSwiper,
+		swiperSlide
+	},
+	methods: {
+		init(s, d) {
+			console.log(s, d)
+		}
+	}
+}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.my-swiper .swiper-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	height: 300px;
+	width: 300px;
+	background-color: rgb(67, 186, 202);
 }
 </style>
